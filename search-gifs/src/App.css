@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.App-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border: 11.2px #474bff double;
+  border-left-style: solid;
+  border-radius: 50%;
+  animation: spinner-aib1d7 0.75s infinite linear;
+}
+
+@keyframes spinner-aib1d7 {
+  to {
+     transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+.App-search {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.boxMain {
+  background: #474bff;
+  border: 2px solid white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 200px;
+  min-height: 200px;
+  padding: 10px 10px 20px 10px;
+}
+
+.boxMain > h1 {
+  font-size: 20px;
+}
+
+.boxMain > .links {
+  color: white;
+  font-size: 15px;
+  text-decoration: none
+}

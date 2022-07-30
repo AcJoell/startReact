@@ -1,0 +1,19 @@
+.boxGif {
+    align-items: strech;
+    background-color: rgb(66, 54, 59);
+    border: 2px solid rgb(115, 103, 103);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    font-size: calc(10px + 2vmin);
+    justify-content: center;
+    height: 500px;
+    margin: .5%;
+    width: 400px;
+}
+
+.sectionGif {
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+}
