@@ -40,21 +40,30 @@ function App() {
 
 
   return (
-    <div className="App "> 
-      <TaskCreator createNewTask={createNewTask}/>
-      <TaskTable tasks={tasks} toggleTask={toggleTask} />
-      <VisibilityControl
-        isChecked={showCompleted}
-        setShowCompleted={(checked) => setShowCompleted(checked)}
-        cleanTask={cleanTask}
-      />
+    <div className="App w-full h-full px-3 antialiased bg-indigo-600 lg:px-6">
+      <nav className="flex items-center w-full h-24 select-none" x-data="{ showMenu: false }">
+        <div class="mt-10 justify-center w-full h-24 mx-auto font-medium md:justify-center">
+            <span class="w-1/4 py-4 pl-6 pr-4 md:pl-4 md:py-0">
+                <span class="p-1 text-xl font-black leading-none text-white select-none"><span class="text-indigo-300">Ac</span><span>Joell</span></span>
+            </span>
+        </div>
+      </nav>
+      <div className="container mx-auto text-center sm:px-4">
+        <h1 className="text-4xl font-extrabold leading-10 tracking-tight text-white sm:text-5xl sm:leading-none md:text-6xl xl:text-7xl"><span class="block">Task App</span></h1>
+        <TaskCreator createNewTask={createNewTask}/>
+        <TaskTable tasks={tasks} toggleTask={toggleTask} />
+        <VisibilityControl
+          isChecked={showCompleted}
+          setShowCompleted={(checked) => setShowCompleted(checked)}
+          cleanTask={cleanTask}
+        />
 
-      {
-        showCompleted === true && (
-          <TaskTable tasks={tasks} toggleTask={toggleTask} showCompleted={showCompleted}/>
-         )
-      }
-
+        {
+          showCompleted === true && (
+            <TaskTable tasks={tasks} toggleTask={toggleTask} showCompleted={showCompleted}/>
+          )
+        }
+      </div>
     </div>
   );
 }
