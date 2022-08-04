@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  padding: 15px;
+  background: deeppink;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a.is-active {
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+}
