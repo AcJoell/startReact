@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route, Link, useParams, Outlet, Navigate, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link, useParams, Outlet, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import NavLink from './NavLink'
 import { useAuth } from './useAuth'
 
@@ -28,10 +28,11 @@ const MobileDetails = () => {
 const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
+  const { state } = useLocation()
 
   const handleClick = () => {
     login()
-    navigate('/search')
+    navigate(state?.location?.pathname ?? '/')
   }
 
   return <button onClick={handleClick}>Login</button>
@@ -39,8 +40,10 @@ const Login = () => {
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth()
+  const location = useLocation()
+
   if (!isAuthenticated) {
-    return <Navigate to='/login' />
+    return <Navigate to='/login' state={{ location }} />
   }
   return children
 }
@@ -82,10 +85,10 @@ function App () {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/search' element={<ProtectedRoute><SearchPage /></ProtectedRoute>}/>
-        <Route path='/mobile/:name' element={<Mobile />}>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/mobile/:name' element={<ProtectedRoute><Mobile /></ProtectedRoute>}>
           <Route path='details' element={<MobileDetails/>} />
         </Route>
-        <Route path='/login' element={<Login />}/>
         <Route path='*' element={<h2>Not Found</h2>}/>
       </Routes>
 
